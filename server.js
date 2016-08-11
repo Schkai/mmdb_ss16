@@ -43,7 +43,34 @@ var datalist = new mongoose.Schema({
     status: String
 });
 
+var driverlist = new mongoose.Schema({
+    name: String,
+    driverId: Number,
+    position: Number
+});
+
+
 var datalist = mongoose.model("datalist", datalist);
+var driverlist = mongoose.model("driverlist", driverlist);
+
+
+
+app.post("/driverlist", function(req, res){
+    new driverlist({
+        name: req.body.driverName,
+        driverId: req.body.driverId,
+        position: req.body.driverLocation
+    }).save(function(err, doc){
+        res.json(doc);
+    });
+});
+
+app.get("/driverlist", function(req, res){
+    driverlist.find({}, function(err, docs){
+        res.json(docs);
+    });
+});
+
 
 
 app.post("/datalist", function(req, res) {

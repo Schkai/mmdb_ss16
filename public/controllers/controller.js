@@ -24,7 +24,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 
     $scope.addDriver = function() {
         console.log($scope.data);
-        $http.post("/datalist", $scope.data).success(function(response){
+        $http.post("/driverlist", $scope.data).success(function(response){
             console.log(response);
             refresh();
         })
