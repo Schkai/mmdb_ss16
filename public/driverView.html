@@ -37,6 +37,9 @@
                             Lieferort
                         </th>
                         <th>
+                            Position
+                        </th>
+                        <th>
                             Status
                         </th>
                         <th>
@@ -46,34 +49,37 @@
                 </thead>
                 <tr>
                     <td>
-                        <input class = "form-control"  ng-model="data.order" disabled>
+                        <input class="form-control" ng-model="data.order" disabled>
                     </td>
                     <td>
-                        <input class = "form-control" ng-model="data.ordernumber" disabled>
+                        <input class="form-control" ng-model="data.ordernumber" disabled>
                     </td>
                     <td>
-                        <input class = "form-control" ng-model="data.driver" disabled>
+                        <input class="form-control" ng-model="data.driver" disabled>
                     </td>
                     <td>
-                        <input class = "form-control" ng-model="data.time" disabled>
+                        <input class="form-control" ng-model="data.time" disabled>
                     </td>
                     <td>
-                        <input class = "form-control" ng-model="data.date" disabled>
+                        <input class="form-control" ng-model="data.date" disabled>
                     </td>
                     <td>
-                        <input class = "form-control" ng-model="data.pickup" disabled>
+                        <input class="form-control" ng-model="data.pickup" disabled>
                     </td>
                     <td>
-                        <input class = "form-control" ng-model="data.destination" disabled>
+                        <input class="form-control" ng-model="data.destination" disabled>
                     </td>
                     <td>
-                        <input class = "form-control" ng-model="data.status" >
+                        <input class="form-control" ng-model="data.driverLocation"/>
                     </td>
                     <td>
-                        <button class = "btn btn-info" ng-click="update()">Update</button>
+                        <input class="form-control" ng-model="data.status">
                     </td>
                     <td>
-                        <button class = "btn btn-info" ng-click="deselect()">Clear</button>
+                        <button class="btn btn-info" ng-click="update()">Update</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-info" ng-click="deselect()">Clear</button>
                     </td>
                 </tr>
                 <tbody>
@@ -103,7 +109,7 @@
                             {{data.status}}
                         </td>
                         <td>
-                            <button class = "btn btn-warning" ng-click="edit(data._id)">Edit</button>
+                            <button class="btn btn-warning" ng-click="edit(data._id)">Edit</button>
                         </td>
                     </tr>
                 </tbody>

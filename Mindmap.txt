@@ -1,8 +1,0 @@
-Aufträge: Status, Datum, Uhrzeit, Auftragsnummer, Abhol- und Zieladresse und Fahrer
-
-Fahrer: Personalnummer, Fahrer, aktueller Standort
-
-
-DBMS:
-    Manager: neue Aufträge anlegen, Fahrer eintragen/ändern
-    Fahrer: Nächsten Auftrag abrufen oder einen Auftrag als erledigt markieren

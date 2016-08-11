@@ -3,12 +3,63 @@ var app = express();
 var mongojs = require("mongojs");
 var db = mongojs("datalist", ["datalist"]);
 var bodyParser = require("body-parser");
+var mongoose = require("mongoose");
 
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
-app.get("/contactlist", function(req, res) {
+var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+                replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };
+var mongodbUri = 'mongodb://Konstantin:konstantin@ds029585.mlab.com:29585/mmdb16';
+
+
+
+
+mongoose.connect(mongodbUri, options);
+
+
+
+var datalist = new mongoose.Schema({
+    order: String,
+    ordernumber: Number,
+    driver: String,
+    time: Number,
+    date: Number,
+    pickup: Number,
+    destination: Number,
+    status: String
+});
+
+var datalist = mongoose.model("datalist", datalist);
+
+
+app.post("/datalist", function(req, res){
+    console.log(req.body);
+    new datalist({
+        order: req.body.order,
+        ordernumber: req.body.ordernumber,
+        driver: req.body.driver,
+        time: req.body.time,
+        date: req.body.date,
+        pickup: req.body.pickup,
+        destination: req.body.destination,
+        status: req.body.status
+    }).save(function(err, doc){
+        res.json(doc);
+    });
+});
+
+app.get("/datalist", function(req, res){
+    datalist.find({}, function(err, docs){
+        res.json(docs);
+    })
+})
+
+
+
+
+app.get("/datalist", function(req, res) {
     console.log("I received a GET request");
     db.datalist.find(function(err, docs){
         console.log(docs);
@@ -23,6 +74,7 @@ app.post("/datalist", function(req, res){
     });
 });
 
+
 app.delete("/datalist/:id", function(req, res){
     var id = req.params.id;
     console.log(id);
@@ -30,6 +82,7 @@ app.delete("/datalist/:id", function(req, res){
         res.json(doc);
     });
 });
+
 
 app.get("/datalist/:id", function(req, res){
     var id = req.params.id;
@@ -39,7 +92,36 @@ app.get("/datalist/:id", function(req, res){
     });
 });
 
+app.delete("/datalist/:id", function(req, res){
+    var id = req.params.id;
+    user.findByIdAndRemove({_id: id},
+    function(err, docs){
+        res.json(doc);
+    });
+});
+
+
 app.put("/datalist/:id", function(req, res){
+    var id = req.params.id;
+    console.log(req.body.order);
+    datalist.findByIdAndUpdate({_id: id},
+    {
+        order: req.body.order,
+        ordernumber: req.body.ordernumber,
+        driver: req.body.driver,
+        time: req.body.time,
+        date: req.body.date,
+        pickup: req.body.pickup,
+        destination: req.body.destination,
+        status: req.body.status
+    }, function(err, doc){
+        res.json(doc);
+    });
+});
+
+
+
+/*app.put("/datalist/:id", function(req, res){
     var id = req.params.id;
     console.log(req.body.order);
     db.datalist.findAndModify({query: {_id: mongojs.ObjectId(id)},
@@ -52,7 +134,7 @@ app.put("/datalist/:id", function(req, res){
       });
 });
 
-
+*/
 
 app.listen(3000);
 console.log("Server running on port 3000");

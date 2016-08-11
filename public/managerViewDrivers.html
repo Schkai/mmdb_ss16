@@ -16,61 +16,28 @@
                 <thead>
                     <tr>
                         <th>
-                            Auftragsbeschreibung
+                            Fahrername
                         </th>
                         <th>
-                            Auftragsnummer
+                            FahrerID
                         </th>
                         <th>
-                            Fahrer
-                        </th>
-                        <th>
-                            Uhrzeit
-                        </th>
-                        <th>
-                            Datum
-                        </th>
-                        <th>
-                            Abholort
-                        </th>
-                        <th>
-                            Lieferort
-                        </th>
-                        <th>
-                            Status
-                        </th>
-                        <th>
-                            Optionen
+                            Ort
                         </th>
                     </tr>
                 </thead>
                 <tr>
                     <td>
-                        <input class = "form-control" ng-model="data.order">
+                        <input class = "form-control" ng-model="data.driverName" >
                     </td>
                     <td>
-                        <input class = "form-control" ng-model="data.ordernumber">
+                        <input class = "form-control" ng-model="data.driverID">
                     </td>
                     <td>
-                        <input class = "form-control" ng-model="data.driver">
+                        <input class = "form-control" ng-model="data.driverLocation"
                     </td>
                     <td>
-                        <input class = "form-control" ng-model="data.time">
-                    </td>
-                    <td>
-                        <input class = "form-control" ng-model="data.date" >
-                    </td>
-                    <td>
-                        <input class = "form-control" ng-model="data.pickup" >
-                    </td>
-                    <td>
-                        <input class = "form-control" ng-model="data.destination" >
-                    </td>
-                    <td>
-                        <input class = "form-control" ng-model="data.status">
-                    </td>
-                    <td>
-                        <button class="btn btn-primary" ng-click="addOrder()">Add Order</button>
+                        <button class="btn btn-primary" ng-click="addDriver()">Add Driver</button>
                     </td>
                     <td>
                         <button class = "btn btn-info" ng-click="update()">Update</button>
@@ -82,28 +49,13 @@
                 <tbody>
                     <tr ng-repeat="data in datalist">
                         <td>
-                            {{data.order}}
+                            {{data.driverName}}
                         </td>
                         <td>
-                            {{data.ordernumber}}
+                            {{data.driverID}}
                         </td>
                         <td>
-                            {{data.driver}}
-                        </td>
-                        <td>
-                            {{data.time}}
-                        </td>
-                        <td>
-                            {{data.date}}
-                        </td>
-                        <td>
-                            {{data.pickup}}
-                        </td>
-                        <td>
-                            {{data.destination}}
-                        </td>
-                        <td>
-                            {{data.status}}
+                            {{data.driverLocation}}
                         </td>
                         <td>
                             <button class="btn btn-danger" ng-click="remove(data._id)">Remove</button>
