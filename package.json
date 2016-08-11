@@ -1,0 +1,32 @@
+{
+  "name": "konstantin",
+  "version": "1.0.0",
+  "description": "mmdb project app for university",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongojs": "^2.4.0",
+    "mongoose": "^4.5.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Schkai/mmdb_ss16.git"
+  },
+  "keywords": [
+    "mongodb",
+    "nosql",
+    "nodejs"
+  ],
+  "author": "Konstantin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Schkai/mmdb_ss16/issues"
+  },
+  "homepage": "https://github.com/Schkai/mmdb_ss16#readme"
+}
