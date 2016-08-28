@@ -1,7 +1,7 @@
 # mmdb_ss16
 mongdo db project for university
 
-First version working on https://mmdb16ss.herokuapp.com/ right now.
+First version working on https://mmdbss16.herokuapp.com/ right now.
 
 TODO:
 
