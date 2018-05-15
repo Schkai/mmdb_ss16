@@ -23,7 +23,7 @@ var options = {
         }
     }
 };
-var mongodbUri = 'mongodb://Konstantin:konstantin@ds029585.mlab.com:29585/mmdb16';
+var mongodbUri = 'mongodb://###';
 
 
 
